@@ -1,0 +1,31 @@
+{% extends '../base.html' %}
+{% block title %}
+    Anime Detail
+{% endblock %}
+
+
+
+{% block content %}
+    {% if anime.user_is_rating %}
+        Thanks u!
+    {% else %}
+        <form action="{% url 'rate_anime' slug=anime.slug %}" method="post">
+            {% csrf_token %}
+            <label for="rating">Рейтинг:</label>
+            <select name="rating" id="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <button type="submit">Оценить</button>
+        </form>
+    {% endif %}
+    <div class="series">
+        {% for anime_media in anime_medias %}
+            <a href="{% url 'anime_media_detail' anime_media.slug %}" class="anime_seria">{{ anime_media.series }}</a>
+        {% endfor %}
+    </div>
+
+{% endblock %}

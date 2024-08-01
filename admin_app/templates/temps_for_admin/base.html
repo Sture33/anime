@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'admin_app/style.css' %}">
+    <title>{% block title %}
+
+    {% endblock %}</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="header">
+        <div class="logo">Anime</div>
+        <div class="links">
+            <a class="link" href="{% url 'anime_list' %}">Home</a>
+            <a class="link" href="{% url 'anime_search' %}">Search</a>
+            {% if request.user.is_authenticated %}
+                <a class="link" href="{% url 'user_profile' %}">Profile</a>
+                <a class="link" href="{% url 'logout' %}">Log Out</a>
+            {% else %}
+                <a class="link" href="{% url 'login' %}">Log In</a>
+                <a class="link" href="{% url 'register' %}">Register</a>
+            {% endif %}
+            {% if request.user.is_superuser %}
+                <a class="link" href="{% url 'anime_create' %}">Create Anime</a>
+                <a class="link" href="{% url 'anime_media_create' %}">Create Anime Media</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="root">
+        {% block content %}
+
+        {% endblock %}
+
+    </div>
+</div>
+</body>
+</html>

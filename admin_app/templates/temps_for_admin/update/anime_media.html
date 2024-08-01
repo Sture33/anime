@@ -1,0 +1,26 @@
+{% extends '../base.html' %}
+{% block title %}
+    Create Anime
+{% endblock %}
+{% block content %}
+    <form method="post" enctype="multipart/form-data" class="form_anm">
+    {% csrf_token %}
+    <div class="form_group">
+        {{ form.anime.label_tag }}
+        {{ form.anime }}
+    </div>
+    <div class="form_group">
+        {{ form.series.label_tag }}
+        {{ form.series }}
+    </div>
+    <div class="form_group">
+        {{ form.name_of_series.label_tag }}
+        {{ form.name_of_series }}
+    </div>
+    <div class="form_group">
+        {{ form.video.label_tag }}
+        {{ form.video }}
+    </div>
+    <button type="submit" class="btn_submit">Submit</button>
+    </form>
+{% endblock %}

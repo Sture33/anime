@@ -1,0 +1,25 @@
+{% extends '../base.html' %}
+{% block title %}
+    Register
+{% endblock %}
+{% block content %}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">
+                    {{ message }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form method="post" class="form_register">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn_submit">Register</button>
+    </form>
+        <li class="google">
+        <a href="{% url "social:begin" "google-oauth2" %}">
+            Sign in with Google
+        </a>
+    </li>
+{% endblock %}

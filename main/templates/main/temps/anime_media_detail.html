@@ -1,0 +1,61 @@
+{% extends '../base.html' %}
+{% block title %}
+    Anime Media Detail
+{% endblock %}
+{% block content %}
+    {% if request.user.is_superuser %}
+        <a href="{% url "anime_media_update" object.slug %}" class="anime_media_update">Update</a>
+        <a href="{% url "anime_delete" object.slug %}" class="anime_media_update">Delete</a>
+    {% endif %}
+    <div class="anime_header">
+        <div class="anime">anime: {{ object.anime }}</div>
+        <span></span>
+        <div class="anime_media_name">anime media name: {{ object.name_of_series }}</div>
+        <span></span>
+        <div class="seria">seria: {{ object.series }}</div>
+    </div>
+    <div class="anime_media_body">
+        <div class="anm_video">
+            <video controls src="{{ object.video.url }}" class="video"></video>
+        </div>
+    </div>
+    {% if request.user.is_authenticated %}
+        <form action="{% url 'like_anime' anm_slug=object.slug %}" method="post" class="form_like">
+            {% csrf_token %}
+            <button type="submit" class="Like"
+                    {% if request.user in object.likes.all %}style="background: #f00;color: #fff" {% else %}{% endif %}>
+                {% if request.user in object.likes.all %}
+                    Убрать лайк
+                {% else %}
+                    Поставить лайк
+                {% endif %}
+            </button>
+        </form>
+    {% endif %}
+
+    <p class="comment_logo">Comments:</p>
+    {% for comment in comments %}
+        <div class="comments">
+
+            <div class="comment_header">
+                <div class="comment_user">{{ comment.user }}</div>
+                <span></span>
+                <div class="comment_time">{{ comment.created_at }}</div>
+            </div>
+            <div class="comment_body">
+                <span></span>
+                <div class="comment">{{ comment.body }}</div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+    {% if request.user.is_authenticated %}
+        <form method="post" class="form_comment">
+            {% csrf_token %}
+            <p>comment</p>
+            {{ form.as_p }}
+            <button type="submit" class="btn_submit">Save</button>
+        </form>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,265 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.root {
+  backdrop-filter: blur(100px); /* Указываем степень размытия */
+  -webkit-backdrop-filter: blur(10px); /* Для совместимости с Safari */
+  margin: 20px 0px 0px 0px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 15px;
+
+  &:hover {
+    box-shadow: 0 0 15px #fdfef0;
+    border: 1px #fdfef0 solid;
+  }
+}
+
+body {
+  background-image: url('../bg/bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.wrapper {
+  max-width: 1470px;
+  font-family: 'Roboto', sans-serif;
+  margin: 25px auto 0px auto;
+  padding: 0px 15px;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  box-shadow: 0 0 15px #969a9e;
+  border: 2px solid #969a9e;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  background: #051822;
+  color: #d4c9c7;
+
+  .logo {
+    font-size: 40px;
+  }
+
+  .links {
+    font-size: 22px;
+    display: flex;
+    grid-gap: 20px;
+
+    a {
+      color: #d4c9c7;
+
+      &:hover {
+        color: #098698;
+      }
+
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+    }
+
+  }
+}
+
+.btn_submit {
+  height: 40px;
+  width: 200px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  font-size: 20px;
+  margin: 0 auto;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #f00;
+    color: #fdfef0;
+  }
+}
+
+.form_login {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 20px;
+
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 20px;
+    font-size: 25px;
+    color: #fdfef0;
+
+    input {
+      width: 400px;
+      padding: 15px;
+      font-size: 20px;
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+    }
+  }
+
+}
+
+.form_register {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 20px;
+
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 20px;
+    font-size: 25px;
+    color: #fdfef0;
+
+    input {
+      width: 400px;
+      padding: 15px;
+      font-size: 20px;
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+    }
+  }
+
+}
+.links_ac{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 20px;
+}
+.link {
+  font-size: 20px;
+  color: #fdfef0;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #1f2e55;
+  }
+}
+.form_uu{
+  display: flex;
+  flex-direction: column;
+  grid-gap: 20px;
+  p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 20px;
+    font-size: 30px;
+    color: #fdfef0;
+    input{
+      padding: 15px;
+      font-size: 20px;
+      width: 400px;
+      -webkit-border-radius: 15px;-moz-border-radius: 15px;border-radius: 15px;
+
+    }
+  }
+  ul{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    color: #fdfef0;
+  }
+}

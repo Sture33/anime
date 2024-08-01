@@ -1,0 +1,44 @@
+{% extends '../base.html' %}
+{% block title %}
+    Main
+{% endblock %}
+{% block content %}
+    <div class="carts">
+        {% for anime in anime_list %}
+            <div class="cart">
+                {% if anime.avatar %}
+                    <div class="img">
+                        <img src="{{ anime.avatar.url }}">
+                    </div>
+                {% endif %}
+                <div class="data">
+                    <div class="status" style="margin: 10px 0px 0px 0px;">status: {{ anime.get_status_display }}</div>
+                    <a href="{% url 'anime_detail' anime.slug %}">{{ anime.title }}</a>
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'favorites' anime.id %}" style="font-size: 18px; margin: -10px 0px 0px 0px;">Add
+                            to Favorite</a>
+                    {% endif %}
+                    {% if request.user.is_superuser%}
+                        <a href="{% url "anime_update" anime.slug%}"style="font-size: 18px; margin: -10px 0px 0px 0px;">Update</a>
+                        <a href="{% url "anime_media_delete" anime.slug%}"style="font-size: 18px; margin: -10px 0px 0px 0px;">Delete</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block pagination %}
+    <nav class="list_page">
+        {% for p in paginator.page_range %}
+            {% if results.number == p %}
+                <li class="page_num active">
+                    <span>{{ p }}</span>
+                </li>
+            {% else %}
+                <li class="page_num">
+                    <a href="?query={{ query }}&page={{ p }}">{{ p }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </nav>
+{% endblock %}

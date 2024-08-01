@@ -1,0 +1,45 @@
+{% extends '../base.html' %}
+{% block title %}
+    Create Anime
+{% endblock %}
+{% block content %}
+    <form method="post" enctype="multipart/form-data" class="form_anm">
+        {% csrf_token %}
+        <div class="left">
+
+            <div class="form_group">
+                {{ form.title.label_tag }}
+                {{ form.title }}
+            </div>
+            <div class="form_group">
+                {{ form.org_title.label_tag }}
+                {{ form.org_title }}
+            </div>
+            <div class="form_group">
+                {{ form.description.label_tag }}
+                {{ form.description }}
+            </div>
+            <div class="form_group">
+                {{ form.avatar.label_tag }}
+                {{ form.avatar }}
+            </div>
+            <div class="form_group">
+                {{ form.created_year.label_tag }}
+                {{ form.created_year }}
+            </div>
+            <div class="form_group">
+                {{ form.status.label_tag }}
+                {{ form.status }}
+            </div>
+        </div>
+        <div class="right">
+            <div class="form_group">
+                {{ form.genres.label_tag }}
+                <div class="form_check">
+                    {{ form.genres }}
+                </div>
+            </div>
+            <button type="submit" class="btn_submit_a">Submit</button>
+        </div>
+    </form>
+{% endblock %}
